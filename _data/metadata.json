@@ -1,0 +1,23 @@
+{
+  "title": "Nikita Codes",
+  "url": "https://example.com/",
+  "language": "en",
+  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Nikita Makhov",
+    "moto": "digging holes",
+    "email": "me@defite.ru",
+    "url": "https://example.com/about-me/",
+    "avatar": "/img/lebowski@2x.png"
+  }
+}

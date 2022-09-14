@@ -1,0 +1,25 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+{% set maxPosts = collections.posts.length | min(2) %}
+
+{% set postslist = collections.posts | latestExcept(2) %}
+{% set firstPost = collections.posts | head(-1) %}
+
+<article class="article">
+<h1 class="article-title">{{ firstPost[0].data.title | safe }}</h1>
+{{ firstPost[0].templateContent | safe }}
+</article>
+
+<hr />
+
+<div class="posts-list">
+  <h2>More posts</h2>
+  {% set postslistCounter = collections.posts | length %}
+  {% include "postslist.njk" %}
+
+  <a class="btn-more" href="{{ '/posts/' | url }}">More posts &rarr;</a>
+</div>

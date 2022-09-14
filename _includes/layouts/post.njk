@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-post
+---
+<article class="article">
+  <header class="article-header">
+    <h1>{{ title }}</h1>
+    <div class="article-header-meta">
+      <time class="posts-list-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    </div>
+  </header>
+
+  {{ content | safe }}
+</article>
+
+{% include "postmeta.njk" %}
