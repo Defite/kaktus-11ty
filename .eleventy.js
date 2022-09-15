@@ -7,6 +7,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const responsiveImages = require("eleventy-plugin-responsive-images");
 
 module.exports = function (eleventyConfig) {
   // Copy the `img` and `css` folders to the output
@@ -17,6 +18,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(responsiveImages);
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
@@ -47,7 +49,11 @@ module.exports = function (eleventyConfig) {
       return [];
     }
 
-    return array.slice(array.length - amount - 1, array.length - 1);
+    if (array.length === amount) {
+      return array.slice(0, array.length - 1);
+    }
+
+    return array.slice(array.length - 1 - amount, array.length - 1);
   });
 
   // Return the smallest number argument
@@ -87,6 +93,10 @@ module.exports = function (eleventyConfig) {
     slugify: eleventyConfig.getFilter("slugify"),
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  // Cloudinary
+  // eleventyConfig.cloudinaryCloudName = "demo";
+  // eleventyConfig.hostname = "demo";
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({

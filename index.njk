@@ -1,12 +1,10 @@
 ---
 layout: layouts/home.njk
-eleventyNavigation:
-  key: Home
-  order: 1
+title: This is home
 ---
-{% set maxPosts = collections.posts.length | min(2) %}
+{% set maxPosts = collections.posts.length | min(1) %}
 
-{% set postslist = collections.posts | latestExcept(2) %}
+{% set postslist = collections.posts | latestExcept(3) %}
 {% set firstPost = collections.posts | head(-1) %}
 
 <article class="article">
@@ -17,9 +15,13 @@ eleventyNavigation:
 <hr />
 
 <div class="posts-list">
-  <h2>More posts</h2>
   {% set postslistCounter = collections.posts | length %}
-  {% include "postslist.njk" %}
-
-  <a class="btn-more" href="{{ '/posts/' | url }}">More posts &rarr;</a>
+  
+  {% if postslistCounter > 1 %}
+    <h2>More posts</h2>
+    {% include "postslist.njk" %}
+      {% if postslistCounter > 3 %}
+        <a class="btn-more" href="{{ '/posts/' | url }}">More posts &rarr;</a>
+      {% endif %}
+  {% endif %}
 </div>

@@ -1,10 +1,10 @@
 {
-  "title": "Nikita Codes",
+  "title": "John Doe works",
   "url": "https://example.com/",
   "language": "en",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "description": "I am a person who want another 11ty blog",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "I am a person who want another 11ty blog",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://example.com/"
@@ -14,9 +14,9 @@
     "url": "https://example.com/feed/feed.json"
   },
   "author": {
-    "name": "Nikita Makhov",
+    "name": "John Doe",
     "moto": "digging holes",
-    "email": "me@defite.ru",
+    "email": "mail@example.com",
     "url": "https://example.com/about-me/",
     "avatar": "/img/lebowski@2x.png"
   }
