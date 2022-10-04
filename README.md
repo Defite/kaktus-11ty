@@ -1,30 +1,15 @@
-# eleventy-base-blog
+# kaktus-11ty
 
-A starter repository showing how to build a blog with the [Eleventy](https://github.com/11ty/eleventy) static site generator.
+A tribute to kaktus theme built with [11ty](https://github.com/11ty/eleventy) static site generator.
 
-[![Build Status](https://travis-ci.org/11ty/eleventy-base-blog.svg?branch=master)](https://travis-ci.org/11ty/eleventy-base-blog)
-
-## Demos
-
-- [Netlify](https://eleventy-base-blog.netlify.com/)
-- [GitHub Pages](https://11ty.github.io/eleventy-base-blog/)
-- [Remix on Glitch](https://glitch.com/~11ty-eleventy-base-blog)
-
-## Deploy this to your own site
-
-Deploy this Eleventy site in just a few clicks on these services:
-
-- [Get your own Eleventy web site on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/11ty/eleventy-base-blog)
-- [Get your own Eleventy web site on Vercel](https://vercel.com/import/project?template=11ty%2Feleventy-base-blog)
-
-Or, read more about [Deploying an Eleventy project](https://www.11ty.dev/docs/deployment/).
+![kaktus-11ty](https://user-images.githubusercontent.com/299118/193879690-acf0f384-d259-4c06-a981-c7136f64fc10.png)
 
 ## Getting Started
 
 ### 1. Clone this Repository
 
 ```
-git clone https://github.com/11ty/eleventy-base-blog.git my-blog-name
+git clone https://github.com/Defite/kaktus-11ty.git my-blog-name
 ```
 
 ### 2. Navigate to the directory
@@ -80,4 +65,31 @@ DEBUG=* npx @11ty/eleventy
   - `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
   - `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
 - `_includes/postlist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `index.njk` has an example of how to use it.
+
+### Cloudinary support
+
+Go to `.eleventy.js`, find Cloudinary section and uncomment two strings:
+
+```js
+eleventyConfig.cloudinaryCloudName = "demo";
+eleventyConfig.hostname = "demo";
+```
+
+Replace with your Cloudinary values.
+
+To use images in posts, use shortcode:
+
+```md
+{% respimg
+    src="/img/sample.jpeg",
+    width="520",
+    sizes="500, 1000",
+    alt="Simple Pic",
+    loading="lazy"
+%}
+```
+
+### Profile info etc
+
+All metadata is stored in `_data/metadata.json`. You can set everything there.
 
